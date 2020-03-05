@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hostInfoService
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hostInfoService
+  template:
+    metadata:
+      labels:
+        app: hostInfoService
+    spec:
+      containers:
+        - name: hostInfoService
+          image: yzgang1976/hostInfoService:1.0
+          ports:
+            - containerPort: 8082
+              protocol: TCP
