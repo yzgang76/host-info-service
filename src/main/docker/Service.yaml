@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: host-info-service-ext
+  namespace: ossm
+  labels:
+    app: host-info-service-ext
+spec:
+  ports:
+    - port: 8082
+      targetPort: 8082
+      nodePort: 31083
+  selector:
+    app: host-info-service-ext
+  type: NodePort

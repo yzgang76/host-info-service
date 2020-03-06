@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: hostInfoService
-  namespace: default
+  name: host-info-service-ext
+  namespace: ossm
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: hostInfoService
+      app: host-info-service-ext
   template:
     metadata:
       labels:
-        app: hostInfoService
+        app: host-info-service-ext
     spec:
       containers:
-        - name: hostInfoService
-          image: yzgang1976/hostInfoService:1.0
+        - name: host-info-service-ext
+          image: yzgang1976/host-info-service:latest
           ports:
             - containerPort: 8082
               protocol: TCP
