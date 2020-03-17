@@ -16,6 +16,15 @@ spec:
       containers:
         - name: host-info-service-ext
           image: yzgang1976/host-info-service:latest
+#          imagePullPolicy: Always
           ports:
             - containerPort: 8082
               protocol: TCP
+#          command: [ "/bin/sh", "-c", "ls /etc/conf/" ]
+          volumeMounts:
+            - name: conf-volume
+              mountPath: /etc/conf
+      volumes:
+        - name: conf-volume
+          configMap:
+            name: db
